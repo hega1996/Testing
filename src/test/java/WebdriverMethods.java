@@ -61,6 +61,15 @@ public class WebdriverMethods {
         assertEquals("Pressed right arrow key","You entered: RIGHT", el.getText());
     }
 
+    @Test
+    public void linkTest() {
+        driver.get("https://ultimateqa.com/simple-html-elements-for-automation/");
+        el= driver.findElement(By.linkText("Clickable Icon"));
+        String link = el.getAttribute("href");
+        assertEquals("https://ultimateqa.com/link-success/",link);
+        assertEquals("padding-box", el.getCssValue("background-origin"));
+    }
+
     @Rule
     public TestWatcher watcher = new TestWatcher() {
         @Override
